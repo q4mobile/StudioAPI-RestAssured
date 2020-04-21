@@ -1,0 +1,78 @@
+{
+    "seoName": "newpage",
+    "seoPath": "newpage",
+    "pageTitle": null,
+    "pageType": "Internal",
+    "parentWorkflowId": "2237b9ec-83f2-4f43-a172-a84c056c40fa",
+    "externalUrl": null,
+    "Title": "Change2",
+    "hasContent": true,
+    "sectionOrder": 1020,
+    "showInNav": true,
+    "globalsApplied": 63,
+    "description": "",
+    "cannotCreateUnder": false,
+    "allowPrint": false,
+    "hideFromSeoPath": false,
+    "isTemplate": false,
+    "layoutDefinitionWorkflowId": "e027651a-a772-4ddc-bef7-b494897b8676",
+    "openInNewWindow": true,
+    "domainWorkflowId": null,
+    "domainLanguageId": null,
+    "workflowId": "4d8da0b5-18d9-497e-826c-b39496589849",
+
+    "cssFiles": [],
+    "userGroups": [
+        {
+            "userGroupId": 1,
+            "securityAction": 15
+        },
+        {
+            "userGroupId": 3,
+            "securityAction": 1
+        },
+        {
+            "userGroupId": 8,
+            "securityAction": 7
+        },
+        {
+            "userGroupId": 9,
+            "securityAction": 15
+        },
+        {
+            "userGroupId": 11,
+            "securityAction": 15
+        },
+        {
+            "userGroupId": 15,
+            "securityAction": 15
+        },
+        {
+            "userGroupId": 16,
+            "securityAction": 7
+        },
+        {
+            "userGroupId": 17,
+            "securityAction": 1
+        },
+        {
+            "userGroupId": 20,
+            "securityAction": 15
+        },
+        {
+            "userGroupId": 21,
+            "securityAction": 15
+        },
+        {
+            "userGroupId": 35,
+            "securityAction": 1
+        },
+        {
+            "userGroupId": 242,
+            "securityAction": 15
+        }
+    ],
+    "languageId": 1,
+    "active": true,
+    "bucket": null
+}
