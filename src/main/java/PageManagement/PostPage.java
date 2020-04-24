@@ -48,9 +48,6 @@ public class PostPage extends BaseClass {
                            post(url);
 
        resp.prettyPrint();
-
-
-
        return resp;
 
 
