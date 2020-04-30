@@ -1,38 +1,39 @@
-package TestWorkflowAPI;
+package WorkflowAPIs;
 
-import GoService.PostGoAPI;
 import TestBase.BaseClass;
-import WorkflowAPI.GetWorkflows;
 import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-public class Test_workflows extends BaseClass {
-
+public class Test_PostSubmit extends BaseClass {
 
     public String baseUrl;
     public String basePath;
     public String url;
-    GetWorkflows Getwflow;
+    Post_SubmitPublishReject Psub;
 
     @BeforeTest
     public void setupUrl()
     {
         baseUrl=prop.getProperty("BaseURL");
-        basePath=prop.getProperty("GetWorkflowBasePath");
+        basePath=prop.getProperty("PostSubmitBasePath");
         url=baseUrl+basePath;
 
-        Getwflow=new GetWorkflows();
+        Psub=new Post_SubmitPublishReject();
 
     }
 
     @Test
     public void TestResponse()
     {
-        Response resp=Getwflow.GetResponse(url);
-        Assert.assertTrue(resp.body().jsonPath().get("success"));
+        Response resp=Psub.GetResponse(url,2,"submitting workflow");
+        resp.prettyPrint();
+        Assert.assertEquals((int)resp.body().jsonPath().get("data.succeeded"),1);
 
     }
+
+
+
 
 }
