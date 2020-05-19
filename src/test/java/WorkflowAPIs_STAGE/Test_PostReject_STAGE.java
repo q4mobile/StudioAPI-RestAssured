@@ -1,13 +1,15 @@
-package WorkflowAPIs;
+package WorkflowAPIs_STAGE;
 
 import TestBase.BaseClass;
+import WorkflowAPIs.GetWorkflows;
+import WorkflowAPIs.Post_SubmitPublishReject;
 import io.restassured.response.Response;
 import org.json.simple.JSONObject;
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-public class Test_PostReject extends BaseClass {
+public class Test_PostReject_STAGE extends BaseClass {
 
     public String baseUrl;
     public String basePath;
@@ -21,11 +23,11 @@ public class Test_PostReject extends BaseClass {
     @BeforeTest
     public void setupUrl()
     {
-        baseUrl=prop.getProperty("BaseURL");
+        baseUrl=prop.getProperty("BaseURL_stage");
         basePath=prop.getProperty("PostRejectBasePath");
         workflowbase=prop.getProperty("GetWorkflowBasePath");
-        apikey=prop.getProperty("Q4web_apikey");
-        apisecret=prop.getProperty("Q4web_apisecret");
+        apikey=prop.getProperty("Q4web_apikey_stage");
+        apisecret=prop.getProperty("Q4web_apisecret_stage");
         url=baseUrl+basePath;
         workflowUrl=baseUrl+workflowbase;
         GetWorkflow=new GetWorkflows();

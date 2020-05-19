@@ -12,6 +12,9 @@ public class Test_GetPRReleaseswithAPIkey extends BaseClass {
     public String baseUrl;
     public String basePath;
     public String url;
+    public String apikey;
+    public String xapikey;
+    public String apisecret;
     GetPressReleases PR;
 
     @BeforeTest
@@ -19,8 +22,10 @@ public class Test_GetPRReleaseswithAPIkey extends BaseClass {
     {
         baseUrl=prop.getProperty("BaseURL");
         basePath=prop.getProperty("GetPRBasePath");
+        apikey= prop.getProperty("Q4web_apikey");
+        apisecret=prop.getProperty("Q4web_apisecret");
+        xapikey=prop.getProperty("GetPRAPIKey");
         url=baseUrl+basePath;
-
         PR=new GetPressReleases();
 
     }
@@ -28,7 +33,7 @@ public class Test_GetPRReleaseswithAPIkey extends BaseClass {
     @Test
     public void TestResponse()
     {
-        Response resp=PR.GetResponse(url);
+        Response resp=PR.GetResponse(url,xapikey,apikey,apisecret);
         Assert.assertTrue(resp.body().jsonPath().get("success"));
 
     }

@@ -1,5 +1,6 @@
-package PageManagement;
+package PageManagement_test;
 
+import PageManagement.PostPage;
 import TestBase.BaseClass;
 import io.restassured.response.Response;
 import org.testng.Assert;
@@ -28,7 +29,7 @@ public class TestPostPage extends BaseClass {
     @Test
     public void TestInternalPage()
     {
-        Response response=page.CreatePage(url,"Internal","null","null");
+        Response response=page.CreatePage(url,"Internal","Regression534","null");
         //response.prettyPrint();
         Assert.assertTrue(response.body().jsonPath().get("success"));
 
@@ -37,7 +38,7 @@ public class TestPostPage extends BaseClass {
     public void TestExternalPage()
     {
 
-        Response response=page.CreatePage(url,"External","null",pageprop.getProperty("ExternalLink"));
+        Response response=page.CreatePage(url,"External","Regression534",pageprop.getProperty("ExternalLink"));
         //response.prettyPrint();
         Assert.assertTrue(response.body().jsonPath().get("success"));
 

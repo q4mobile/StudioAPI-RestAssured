@@ -1,4 +1,4 @@
-package WorkflowAPIs;
+package GetPressReleases;
 
 import TestBase.BaseClass;
 import io.restassured.response.Response;
@@ -6,34 +6,39 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-public class Test_workflows extends BaseClass {
+public class Test_GetPRReleaseswithAPIkey_STAGE extends BaseClass {
 
 
     public String baseUrl;
     public String basePath;
     public String url;
     public String apikey;
+    public String xapikey;
     public String apisecret;
-    GetWorkflows Getwflow;
+    GetPressReleases PR;
 
     @BeforeTest
     public void setupUrl()
     {
         baseUrl=prop.getProperty("BaseURL_stage");
-        basePath=prop.getProperty("GetWorkflowBasePath");
-        apikey=prop.getProperty("Q4web_apikey");
-        apisecret=prop.getProperty("Q4web_apisecret");
+        basePath=prop.getProperty("GetPRBasePath");
+        apikey= prop.getProperty("Q4web_apikey_stage");
+        apisecret=prop.getProperty("Q4web_apisecret_stage");
+        xapikey=prop.getProperty("GetPRAPIKey_stage");
         url=baseUrl+basePath;
-        Getwflow=new GetWorkflows();
+
+        PR=new GetPressReleases();
 
     }
 
     @Test
     public void TestResponse()
     {
-        Response resp=Getwflow.GetResponse(url,2,apikey,apisecret);
+        Response resp=PR.GetResponse(url,xapikey,apikey,apisecret);
         Assert.assertTrue(resp.body().jsonPath().get("success"));
 
     }
+
+
 
 }

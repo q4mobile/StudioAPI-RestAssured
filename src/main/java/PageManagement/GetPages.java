@@ -2,29 +2,23 @@ package PageManagement;
 
 import TestBase.BaseClass;
 import io.restassured.RestAssured;
-import io.restassured.builder.RequestSpecBuilder;
-import io.restassured.http.Header;
 import io.restassured.response.Response;
-import io.restassured.specification.RequestSpecification;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 
-import java.net.URI;
-import java.net.URISyntaxException;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.TimeUnit;
 
 
 public class GetPages extends BaseClass {
 
-    private final String apikey=prop.getProperty("apikey");
-    private final String apisecret=prop.getProperty("apisecret");
-    private final String realm=prop.getProperty("realm");
+
     public WebDriver driver;
     public PageEdit pageedit;
+    private final String apikey=prop.getProperty("Q4web_apikey");
+    private final String apisecret=prop.getProperty("Q4web_apisecret");
+    private final String realm=prop.getProperty("realm");
     public Response GetAllPages(String url)  {
 
         /* Method 1:
@@ -45,7 +39,7 @@ public class GetPages extends BaseClass {
                     .header("realm",realm)
                 .when()
                     .get(url);
-        //resp.prettyPrint();
+        resp.prettyPrint();
 
         return resp;
 

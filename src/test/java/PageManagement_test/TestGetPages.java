@@ -1,5 +1,6 @@
-package PageManagement;
+package PageManagement_test;
 
+import PageManagement.GetPages;
 import TestBase.BaseClass;
 import io.restassured.response.Response;
 import org.testng.Assert;

@@ -11,13 +11,10 @@ public class Post_SubmitPublishReject extends BaseClass {
 
     GetWorkflows workflow;
 
-    public JSONObject CreateBody(int statusid,String comment)
+    public JSONObject CreateBody(Response resp,String comment)
     {
 
-        String url=prop.getProperty("BaseURL")+prop.getProperty("GetWorkflowBasePath");
-        workflow= new GetWorkflows();
-        Response resp=workflow.GetResponse(url,statusid);
-        resp.prettyPrint();
+
         String workflowid=resp.body().jsonPath().get("data[0].workflowId");
         System.out.println("workflowid is -->"+workflowid);
 
@@ -36,17 +33,17 @@ public class Post_SubmitPublishReject extends BaseClass {
         mainObj.put("comment", comment);
         mainObj.put("workflows", jarr);
 
-        System.out.println(mainObj);
+        //System.out.println(mainObj);
 
         return mainObj;
     }
-    public Response GetResponse(String url,int statusid,String comment)
+    public Response GetResponse(String url,JSONObject body,String apikey,String apisecret)
     {
 
-        JSONObject body=CreateBody(statusid,comment);
+
         Response resp= RestAssured.
                 given().
-                    auth().preemptive().basic(prop.getProperty("apikey"),prop.getProperty("apisecret")).
+                    auth().preemptive().basic(apikey,apisecret).
                     header("realm",prop.getProperty("realm")).
                     header("Content-Type","application/json").
                     body(body.toString()).

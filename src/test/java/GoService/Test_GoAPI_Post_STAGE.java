@@ -10,29 +10,33 @@ import org.testng.annotations.Test;
 
 import java.io.IOException;
 
-public class Test_GoAPI_Post extends BaseClass {
+public class Test_GoAPI_Post_STAGE extends BaseClass {
 
 
     PostGoAPI Go;
     public String baseUrl;
     public String basePath;
     public String url;
+
+
     public String apikey;
     public String apisecret;
     public String xkey;
 
+
     @BeforeTest
     public void setupUrl()
     {
-        baseUrl=prop.getProperty("GoAPIBaseUrl");
+        baseUrl=prop.getProperty("GoAPIBaseUrl_stage");
         basePath=prop.getProperty("GoAPIBasePath");
+        apikey=prop.getProperty("apikey_stage");
+        apisecret=prop.getProperty("apisecret_stage");
+        xkey=prop.getProperty("GetPRAPIKey_stage");
 
-        apikey=prop.getProperty("apikey");
-        apisecret=prop.getProperty("apisecret");
-        xkey=prop.getProperty("GoAPIXKey");
 
         url=baseUrl+basePath;
         Go=new PostGoAPI();
+
     }
 
     @Test
@@ -41,6 +45,7 @@ public class Test_GoAPI_Post extends BaseClass {
         resp.prettyPrint();
         Assert.assertTrue(resp.body().jsonPath().get("Success"));
     }
+
 
 
 

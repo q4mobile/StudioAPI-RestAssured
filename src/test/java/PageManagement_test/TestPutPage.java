@@ -1,12 +1,13 @@
-package PageManagement;
+package PageManagement_test;
 
+import PageManagement.GetPages;
+import PageManagement.PutPage;
 import TestBase.BaseClass;
 import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-import java.util.HashMap;
 import java.util.Map;
 
 public class TestPutPage extends BaseClass {

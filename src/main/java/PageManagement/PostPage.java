@@ -8,11 +8,10 @@ import io.restassured.response.Response;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Properties;
 
 public class PostPage extends BaseClass {
-     String apikey=prop.getProperty("apikey");
-     String apisecret=prop.getProperty("apisecret");
+     String apikey=prop.getProperty("Q4web_apikey");
+     String apisecret=prop.getProperty("Q4web_apisecret");
 
      public static Map<String,String> page=page=new HashMap<>();
 

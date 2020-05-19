@@ -6,17 +6,17 @@ import io.restassured.response.Response;
 
 public class GetPressReleases extends BaseClass {
 
-
-    public Response GetResponse(String url)
+    public Response GetResponse(String url,String xapikey,String apikey,String apisecret)
     {
 
-        Response resp= RestAssured.
+         Response resp= RestAssured.
                 given().
-                     auth().preemptive().basic(prop.getProperty("apikey"),prop.getProperty("apisecret")).
+                     auth().preemptive().basic(apikey,apisecret).
                      header("realm",prop.getProperty("realm")).
-                     header("x-api-key",prop.getProperty("GetPRAPIKey")).
+                     header("x-api-key",xapikey).
+                     header("Content-Type","application/json; charset=utf-8").
                      param("page",1).
-                     param("pageSize",400).
+                     param("pageSize",1).
                      param("IncludeAttachments","true").
                      param("IncludeMediaFiles","true").
                      param("profile","published").
