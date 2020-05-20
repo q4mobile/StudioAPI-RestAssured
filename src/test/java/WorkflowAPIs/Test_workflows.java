@@ -19,7 +19,7 @@ public class Test_workflows extends BaseClass {
     @BeforeTest
     public void setupUrl()
     {
-        baseUrl=prop.getProperty("BaseURL_stage");
+        baseUrl=prop.getProperty("BaseURL");
         basePath=prop.getProperty("GetWorkflowBasePath");
         apikey=prop.getProperty("Q4web_apikey");
         apisecret=prop.getProperty("Q4web_apisecret");

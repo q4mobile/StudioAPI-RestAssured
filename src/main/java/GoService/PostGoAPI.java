@@ -47,7 +47,7 @@ public class PostGoAPI  {
 
     }
 
-    public Response GetAPIResponse(String url,String xkey,String apikey,String apisecret) throws IOException, ParseException {
+    public Response GetAPIResponse(String url,String key,String apikey,String apisecret) throws IOException, ParseException {
 
         SetBody();
 
@@ -56,7 +56,7 @@ public class PostGoAPI  {
                 given().
                 auth().
                 preemptive().basic(apikey, apisecret).
-                header("X-Api-Key", xkey).
+                header("X-Api-Key", key).
                 header("Content-Type", "application/json").
                 body(file).
                 when().

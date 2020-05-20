@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="C:/Users/VIBHAK/workspace/StudioAPI-RestAssured">
+        <classes>
+            <class name="GetPressReleases.Test_GetPRReleaseswithAPIkey">
+                <methods><include name="TestResponse"/></methods></class>
+
+            <class name="GoService.Test_GoAPI_Post">
+                <methods><include name="TestResponse"/></methods></class>
+
+            <class name="PageManagement_test.GetPageWorkflow">
+                <methods><include name="TestResponse"/>
+                    <include name="TestStatusCode"/>
+                    <include name="TestEditUrl"/></methods></class>
+            <class name="PageManagement_test.TestGetPages">
+                <methods><include name="TestResponse"/>
+                    <include name="TestStatusCode"/></methods></class>
+            <class name="PageManagement_test.TestPostPage">
+                <methods>
+                    <include name="TestInternalPage"/>
+                    <include name="TestExternalPage"/>
+                    <include name="TestExternalLink"/></methods></class>
+            <class name="PageManagement_test.TestPutPage">
+                <methods><include name="TestChangePgTitle"/></methods></class>
+            <class name="WorkflowAPIs.Test_PostPublish">
+                <methods><include name="TestResponse"/></methods></class>
+            <class name="WorkflowAPIs.Test_PostReject"><methods>
+                <include name="TestResponse"/></methods></class>
+            <class name="WorkflowAPIs.Test_PostSubmit">
+                <methods><include name="TestResponse"/></methods></class>
+            <class name="WorkflowAPIs.Test_workflows"><methods>
+                <include name="TestResponse"/></methods></class>
+
+
+        </classes>
+    </test>
+</suite>

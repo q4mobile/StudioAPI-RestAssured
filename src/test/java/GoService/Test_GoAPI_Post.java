@@ -27,8 +27,8 @@ public class Test_GoAPI_Post extends BaseClass {
         baseUrl=prop.getProperty("GoAPIBaseUrl");
         basePath=prop.getProperty("GoAPIBasePath");
 
-        apikey=prop.getProperty("apikey");
-        apisecret=prop.getProperty("apisecret");
+        apikey=prop.getProperty("Q4web_apikey");
+        apisecret=prop.getProperty("Q4web_apisecret");
         xkey=prop.getProperty("GoAPIXKey");
 
         url=baseUrl+basePath;

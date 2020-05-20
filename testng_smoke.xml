@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="C:/Users/VIBHAK/workspace/StudioAPI-RestAssured">
+        <classes>
+
+
+            <class name="GetPressReleases.Test_GetPRReleaseswithAPIkey_STAGE">
+                <methods><include name="TestResponse"/></methods></class>
+            <class name="GoService.Test_GoAPI_Post_STAGE">
+                <methods><include name="TestResponse"/></methods></class>
+            <class name="WorkflowAPIs_STAGE.Test_PostPublish_STAGE"><methods>
+                <include name="TestResponse"/></methods></class>
+            <class name="WorkflowAPIs_STAGE.Test_PostReject_STAGE"><methods>
+                <include name="TestResponse"/></methods></class>
+            <class name="WorkflowAPIs_STAGE.Test_PostSubmit_STAGE"><methods>
+                <include name="TestResponse"/></methods></class>
+            <class name="WorkflowAPIs_STAGE.Test_workflows_STAGE"><methods>
+                <include name="TestResponse"/></methods>
+            </class>
+        </classes>
+    </test>
+</suite>

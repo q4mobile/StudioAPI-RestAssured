@@ -29,8 +29,8 @@ public class Test_GoAPI_Post_STAGE extends BaseClass {
     {
         baseUrl=prop.getProperty("GoAPIBaseUrl_stage");
         basePath=prop.getProperty("GoAPIBasePath");
-        apikey=prop.getProperty("apikey_stage");
-        apisecret=prop.getProperty("apisecret_stage");
+        apikey=prop.getProperty("Q4web_apikey_stage");
+        apisecret=prop.getProperty("Q4web_apisecret_stage");
         xkey=prop.getProperty("GetPRAPIKey_stage");
 
 
