@@ -9,16 +9,15 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class PutPage extends BaseClass {
-     String apikey=prop.getProperty("Q4web_apikey");
-     String apisecret=prop.getProperty("Q4web_apisecret");
-
-     Map<String,String> payload=new HashMap<>();
 
 
-     public Response EditPage(String url)
+     //Map<String,String> payload=new HashMap<>();
+
+
+     public Response EditPage(String url,String apikey,String apisecret,String filepath)
     {
 
-        File file=new File("src/main/java/Json/page.json");
+        File file=new File(filepath);
         Response resp= RestAssured.
                 given().
                 auth().

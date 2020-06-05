@@ -22,21 +22,25 @@ public class PostGoAPI  {
     }
 
 
-    public void SetBody() throws IOException, ParseException {
+    public void SetBody(String FID) throws IOException, ParseException {
 
         Reader reader = new FileReader("src/main/java/Json/Go.json");
         JSONParser jsonParser = new JSONParser();
         JSONObject data = (JSONObject) jsonParser.parse(reader);
 
+        //Set Filter ID
+        data.put("FilterId",FID);
+
+        //Set Press release ID
         JSONObject Parent=(JSONObject) data.get("Data");
         int ID=CreateID();
-
         Parent.put("Id",ID);
+
+        //Set headline
         String headline="Test GO API for id "+ID;
-
-
         Parent.put("Headline",headline);
-        String date=java.time.LocalDateTime.now().toString();
+
+        //String date=java.time.LocalDateTime.now().toString();
         Parent.put("Date",java.time.LocalDateTime.now().toString());
         System.out.println(Parent.toString());
         FileWriter file = new FileWriter("src/main/java/Json/Go.json");
@@ -47,20 +51,19 @@ public class PostGoAPI  {
 
     }
 
-    public Response GetAPIResponse(String url,String key,String apikey,String apisecret) throws IOException, ParseException {
+    public Response GetAPIResponse(String url,String key,String apikey,String apisecret,String FID) throws IOException, ParseException {
 
-        SetBody();
+        SetBody(FID);
 
         File file = new File("src/main/java/Json/Go.json");
         Response resp = RestAssured.
                 given().
-                auth().
-                preemptive().basic(apikey, apisecret).
-                header("X-Api-Key", key).
-                header("Content-Type", "application/json").
-                body(file).
+                   auth().preemptive().basic(apikey, apisecret).
+                   header("X-Api-Key", key).
+                   header("Content-Type", "application/json").
+                   body(file).
                 when().
-                post(url);
+                    post(url);
         resp.prettyPrint();
         return resp;
     }

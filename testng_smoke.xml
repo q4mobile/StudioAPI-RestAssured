@@ -15,8 +15,22 @@
                 <include name="TestResponse"/></methods></class>
             <class name="WorkflowAPIs_STAGE.Test_PostSubmit_STAGE"><methods>
                 <include name="TestResponse"/></methods></class>
-            <class name="WorkflowAPIs_STAGE.Test_workflows_STAGE"><methods>
-                <include name="TestResponse"/></methods>
+            <class name="WorkflowAPIs_STAGE.Test_workflows_STAGE">
+                <methods><include name="TestResponse"/></methods></class>
+
+            <class name="PageManagement_STAGE.GetPageWorkflow_STAGE">
+                    <methods><include name="TestResponse"/>
+                        <include name="TestStatusCode"/></methods></class>
+            <class name="PageManagement_STAGE.TestGetPages_STAGE">
+                    <methods><include name="TestResponse"/>
+                        <include name="TestStatusCode"/></methods></class>
+            <class name="PageManagement_STAGE.TestPostPage_STAGE">
+                    <methods>
+                        <include name="TestInternalPage"/>
+                        <include name="TestExternalPage"/>
+                        <include name="TestExternalLink"/></methods></class>
+            <class name="PageManagement_STAGE.TestPutPage_STAGE">
+                    <methods><include name="TestChangePgTitle"/></methods>
             </class>
         </classes>
     </test>

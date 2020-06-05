@@ -1,10 +1,10 @@
 {
-    "seoName": "company-info",
-    "seoPath": "https://about.fb.com/company-info/",
+    "seoName": "automationpage",
+    "seoPath": "automationpage",
     "pageTitle": null,
-    "pageType": "External",
+    "pageType": "Internal",
     "parentWorkflowId": "2237b9ec-83f2-4f43-a172-a84c056c40fa",
-    "externalUrl": "https://about.fb.com/company-info/",
+    "externalUrl": null,
     "Title": "Title changed",
     "hasContent": true,
     "sectionOrder": 1020,
@@ -15,11 +15,11 @@
     "allowPrint": false,
     "hideFromSeoPath": false,
     "isTemplate": false,
-    "layoutDefinitionWorkflowId": "adade52e-7ab3-45d9-a01f-d47f344be7e8",
+    "layoutDefinitionWorkflowId": "2759013d-8150-400a-9fff-4fc4f593dc0c",
     "openInNewWindow": true,
     "domainWorkflowId": null,
     "domainLanguageId": null,
-    "workflowId": "6da1f1fd-9af0-48bf-a882-124273c06c20",
+    "workflowId": "2398a0f9-9e50-48d9-8f93-e5700ba0b201",
 
     "cssFiles": [],
     "userGroups": [

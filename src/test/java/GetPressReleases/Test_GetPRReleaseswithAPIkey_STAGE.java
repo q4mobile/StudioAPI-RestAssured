@@ -24,7 +24,7 @@ public class Test_GetPRReleaseswithAPIkey_STAGE extends BaseClass {
         basePath=prop.getProperty("GetPRBasePath");
         apikey= prop.getProperty("Q4web_apikey_stage");
         apisecret=prop.getProperty("Q4web_apisecret_stage");
-        xapikey=prop.getProperty("GetPRAPIKey_stage");
+        xapikey=prop.getProperty("GetPRAPIKey1_stage");
         url=baseUrl+basePath;
 
         PR=new GetPressReleases();

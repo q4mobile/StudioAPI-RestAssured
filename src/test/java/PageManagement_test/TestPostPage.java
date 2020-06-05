@@ -13,12 +13,16 @@ public class TestPostPage extends BaseClass {
     public String baseUrl;
     public String basePath;
     public String url;
+    public String apikey;
+    public String apisecret;
 
     @BeforeTest
     public void setupUrl()
     {
         baseUrl=prop.getProperty("BaseURL");
         basePath=prop.getProperty("BasePath");
+        apikey=prop.getProperty("Q4web_apikey");
+        apisecret=prop.getProperty("Q4web_apisecret");
         url=baseUrl+basePath;
 
         page=new PostPage();
@@ -29,7 +33,7 @@ public class TestPostPage extends BaseClass {
     @Test
     public void TestInternalPage()
     {
-        Response response=page.CreatePage(url,"Internal","Regression534","null");
+        Response response=page.CreatePage(url,"Internal","Automation_regression","null",apikey,apisecret);
         //response.prettyPrint();
         Assert.assertTrue(response.body().jsonPath().get("success"));
 
@@ -38,7 +42,7 @@ public class TestPostPage extends BaseClass {
     public void TestExternalPage()
     {
 
-        Response response=page.CreatePage(url,"External","Regression534",pageprop.getProperty("ExternalLink"));
+        Response response=page.CreatePage(url,"External","Automation_regression",pageprop.getProperty("ExternalLink"),apikey,apisecret);
         //response.prettyPrint();
         Assert.assertTrue(response.body().jsonPath().get("success"));
 
@@ -47,7 +51,7 @@ public class TestPostPage extends BaseClass {
     public void TestExternalLink()
     {
 
-        Response response=page.CreatePage(url,"External","null",pageprop.getProperty("InternalLink"));
+        Response response=page.CreatePage(url,"External","Automation_regression",pageprop.getProperty("InternalLink"),apikey,apisecret);
         //response.prettyPrint();
         Assert.assertTrue(response.body().jsonPath().get("success"));
 

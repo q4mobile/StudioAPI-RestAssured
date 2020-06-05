@@ -17,25 +17,29 @@ public class GetPageWorkflow extends BaseClass {
     public String basePath;
     public String url;
     public String workflowid;
-    Map<String,String> respdata;
+    public String apikey;
+    public String apisecret;
+   // Map<String,String> respdata;
 
     @BeforeTest
     public void setupUrl()
     {
         baseUrl=prop.getProperty("BaseURL");
         basePath=prop.getProperty("BasePath");
-        workflowid=prop.getProperty("workflowid");
+        apikey=prop.getProperty("Q4web_apikey");
+        apisecret=prop.getProperty("Q4web_apisecret");
+        workflowid=prop.getProperty("workflowid_test");
         url=baseUrl+basePath+"/"+workflowid;
 
         pages=new GetPages();
-        respdata=new HashMap<>();
+        //respdata=new HashMap<>();
 
 
     }
     @Test()
     public void TestResponse()
     {
-        Response response=pages.GetAllPages(url);
+        Response response=pages.GetAllPages(url,apikey,apisecret);
         //response.prettyPrint();
         Assert.assertTrue(response.body().jsonPath().get("success"));
 
@@ -43,11 +47,11 @@ public class GetPageWorkflow extends BaseClass {
     @Test
     public void TestStatusCode()
     {
-        Response response=pages.GetAllPages(url);
+        Response response=pages.GetAllPages(url,apikey,apisecret);
         Assert.assertEquals(200,response.getStatusCode());
 
     }
-    @Test(dependsOnMethods = "TestResponse")
+    /*@Test(dependsOnMethods = "TestResponse")
     public void TestEditUrl()
     {
 
@@ -58,6 +62,6 @@ public class GetPageWorkflow extends BaseClass {
         Assert.assertEquals(PgTitleAPI,PgTitleUI);
 
 
-    }
+    }*/
 
 }

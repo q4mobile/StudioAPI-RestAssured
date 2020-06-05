@@ -12,7 +12,7 @@
             <class name="PageManagement_test.GetPageWorkflow">
                 <methods><include name="TestResponse"/>
                     <include name="TestStatusCode"/>
-                    <include name="TestEditUrl"/></methods></class>
+                    </methods></class>
             <class name="PageManagement_test.TestGetPages">
                 <methods><include name="TestResponse"/>
                     <include name="TestStatusCode"/></methods></class>

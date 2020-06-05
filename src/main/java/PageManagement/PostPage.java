@@ -3,20 +3,16 @@ package PageManagement;
 import TestBase.BaseClass;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
-
-
-
 import java.util.HashMap;
 import java.util.Map;
 
 public class PostPage extends BaseClass {
-     String apikey=prop.getProperty("Q4web_apikey");
-     String apisecret=prop.getProperty("Q4web_apisecret");
-
-     public static Map<String,String> page=page=new HashMap<>();
 
 
-     public Response CreatePage(String url,String PageType,String bucket,String exturl)
+     public static Map<String,String> page=new HashMap<>();
+
+
+     public Response CreatePage(String url,String PageType,String bucket,String exturl,String apikey,String apisecret)
     {
 
 
