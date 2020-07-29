@@ -4,9 +4,12 @@ import PageManagement.GetPages;
 import PageManagement.PutPage;
 import TestBase.BaseClass;
 import io.restassured.response.Response;
+import org.json.simple.parser.ParseException;
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+
+import java.io.IOException;
 
 public class TestPutPage_STAGE extends BaseClass {
 
@@ -39,8 +42,7 @@ public class TestPutPage_STAGE extends BaseClass {
     }
 
     @Test
-    public void TestChangePgTitle()
-    {
+    public void TestChangePgTitle() throws IOException, ParseException {
         Response resp=pp.EditPage(url,apikey,apisecret,filepath);
         Assert.assertTrue(resp.body().jsonPath().get("success"));
 
