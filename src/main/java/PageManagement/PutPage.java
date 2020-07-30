@@ -22,7 +22,7 @@ public class PutPage extends BaseClass {
 
         // int num= (int) Math.random();
         String name="AutomationPage"+num;
-        System.out.println("name is--"+name);
+        //System.out.println("name is--"+name);
 
         Reader reader = new FileReader(filepath);
         JSONParser jsonParser = new JSONParser();
