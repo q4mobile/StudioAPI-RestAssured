@@ -26,13 +26,13 @@ public class PostGoAPI  {
 
         Reader reader = new FileReader("src/main/java/Json/Go.json");
         JSONParser jsonParser = new JSONParser();
-        JSONObject data = (JSONObject) jsonParser.parse(reader);
+        JSONObject data1 = (JSONObject) jsonParser.parse(reader);
 
         //Set Filter ID
-        data.put("FilterId",FID);
+        data1.put("FilterId",FID);
 
         //Set Press release ID
-        JSONObject Parent=(JSONObject) data.get("Data");
+        JSONObject Parent=(JSONObject) data1.get("Data");
         int ID=CreateID();
         Parent.put("Id",ID);
 
@@ -44,7 +44,7 @@ public class PostGoAPI  {
         Parent.put("Date",java.time.LocalDateTime.now().toString());
         System.out.println(Parent.toString());
         FileWriter file = new FileWriter("src/main/java/Json/Go.json");
-        file.write(data.toString());
+        file.write(data1.toString());
         file.flush();
 
         //Response resp=GetAPIResponse(url);
