@@ -15,36 +15,39 @@ public class GetPages extends BaseClass {
 
 
     public WebDriver driver;
-    public PageEdit pageedit;
-    private final String apikey=prop.getProperty("Q4web_apikey");
-    private final String apisecret=prop.getProperty("Q4web_apisecret");
-    private final String realm=prop.getProperty("realm");
-    public Response GetAllPages(String url)  {
+    //public PageEdit pageedit;
+
+    String realm=prop.getProperty("realm");
+
+
+    public Response GetAllPages(String url,String apikey, String apisecret)  {
 
         /* Method 1:
         RequestSpecBuilder builder = new RequestSpecBuilder();
         var requestSpec = builder.build();
         RequestSpecification Request = RestAssured.given().spec(requestSpec);
-        /*Response response= RestAssured
+        Response response= RestAssured
                 .given().
                         headers("Authorization", "Bearer Token"+"eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbCI6InZpYmhha0BxNHdlYnN5c3RlbXMuY29tIiwiU3ViZG9tYWluIjoic3BvdGlmeTIwMThpcG8iLCJBY3Rpb25zIjoiMjE0NzQ4MzY0NyIsImV4cCI6MTU4NDU2NDg3OS4wLCJpYXQiOjE1ODQ1NTc2NzkuMCwiaXNzIjoiaHR0cHM6Ly9zcG90aWZ5MjAxOGlwby5zMS53ZWIuZGV2LnE0aW5jLmNvbS9hZG1pbi9sb2dpbi5hc3B4IiwiYXVkIjoiaHR0cHM6Ly9zcG90aWZ5MjAxOGlwby5zdHVkaW8uZGV2LnE0aW5jLmNvbSJ9.DRm_yXhyj5imAqgyXRYImKb2cYPXVmiH-BFEpZnNF7Q")
                 .when()
                 .get("https://studio.web.dev.q4api.com/pages/en");
+
         Request.header(new Header("Authorization", "Bearer " +"eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbCI6InZpYmhha0BxNHdlYnN5c3RlbXMuY29tIiwiU3ViZG9tYWluIjoic3BvdGlmeTIwMThpcG8iLCJBY3Rpb25zIjoiMjE0NzQ4MzY0NyIsImV4cCI6MTU4NDU2NDg3OS4wLCJpYXQiOjE1ODQ1NTc2NzkuMCwiaXNzIjoiaHR0cHM6Ly9zcG90aWZ5MjAxOGlwby5zMS53ZWIuZGV2LnE0aW5jLmNvbS9hZG1pbi9sb2dpbi5hc3B4IiwiYXVkIjoiaHR0cHM6Ly9zcG90aWZ5MjAxOGlwby5zdHVkaW8uZGV2LnE0aW5jLmNvbSJ9.DRm_yXhyj5imAqgyXRYImKb2cYPXVmiH-BFEpZnNF7Q" ));
          Response resp=Request.get(new URI("https://studio.web.dev.q4api.com/pages/en"));*/
 
-        Response resp= RestAssured
+        //method2
+        Response response= RestAssured
                 .given()
                     .auth().preemptive().basic(apikey,apisecret)
                     .header("realm",realm)
                 .when()
                     .get(url);
-        resp.prettyPrint();
+        response.prettyPrint();
 
-        return resp;
+        return response;
 
     }
-    public String VerifyEditUrl(String url) {
+   /* public String VerifyEditUrl(String url) {
 
         //Collecting response from API
         Response resp = GetAllPages(url);
@@ -112,6 +115,6 @@ public class GetPages extends BaseClass {
        return respbody;
 
 
-    }
+    }*/
 
 }

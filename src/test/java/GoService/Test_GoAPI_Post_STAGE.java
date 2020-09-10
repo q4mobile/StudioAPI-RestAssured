@@ -22,6 +22,7 @@ public class Test_GoAPI_Post_STAGE extends BaseClass {
     public String apikey;
     public String apisecret;
     public String xkey;
+    public String FID;
 
 
     @BeforeTest
@@ -32,6 +33,7 @@ public class Test_GoAPI_Post_STAGE extends BaseClass {
         apikey=prop.getProperty("Q4web_apikey_stage");
         apisecret=prop.getProperty("Q4web_apisecret_stage");
         xkey=prop.getProperty("GetPRAPIKey_stage");
+        FID=prop.getProperty("GoAPIFilterID_stage");
 
 
         url=baseUrl+basePath;
@@ -41,7 +43,7 @@ public class Test_GoAPI_Post_STAGE extends BaseClass {
 
     @Test
     public void TestResponse() throws IOException, ParseException {
-        Response resp=Go.GetAPIResponse(url,xkey,apikey,apisecret);
+        Response resp=Go.GetAPIResponse(url,xkey,apikey,apisecret,FID);
         resp.prettyPrint();
         Assert.assertTrue(resp.body().jsonPath().get("Success"));
     }

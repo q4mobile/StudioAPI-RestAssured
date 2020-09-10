@@ -15,11 +15,16 @@ public class TestGetPages extends BaseClass {
     public String baseUrl;
     public String basePath;
     public String url;
+    public String apikey;
+    public String apisecret;
+
     @BeforeTest
     public void setupUrl()
     {
         baseUrl=prop.getProperty("BaseURL");
         basePath=prop.getProperty("BasePath");
+        apikey=prop.getProperty("Q4web_apikey");
+        apisecret=prop.getProperty("Q4web_apisecret");
         url=baseUrl+basePath;
 
         pages=new GetPages();
@@ -27,7 +32,7 @@ public class TestGetPages extends BaseClass {
     @Test
     public void TestResponse()
     {
-        Response response=pages.GetAllPages(url);
+        Response response=pages.GetAllPages(url,apikey,apisecret);
         //response.prettyPrint();
         Assert.assertTrue(response.body().jsonPath().get("success"));
 
@@ -35,7 +40,7 @@ public class TestGetPages extends BaseClass {
     @Test
     public void TestStatusCode()
     {
-        Response response=pages.GetAllPages(url);
+        Response response=pages.GetAllPages(url,apikey,apisecret);
         Assert.assertEquals(200,response.getStatusCode());
 
     }

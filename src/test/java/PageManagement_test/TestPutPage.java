@@ -4,10 +4,12 @@ import PageManagement.GetPages;
 import PageManagement.PutPage;
 import TestBase.BaseClass;
 import io.restassured.response.Response;
+import org.json.simple.parser.ParseException;
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
+import java.io.IOException;
 import java.util.Map;
 
 public class TestPutPage extends BaseClass {
@@ -17,14 +19,20 @@ public class TestPutPage extends BaseClass {
     public String basePath;
     public String url;
     public String workflowid;
-    Map<String,String> respbody;
+    public String apikey;
+    public String apisecret;
+    public String filepath;
+    //Map<String,String> respbody;
     PutPage pp;
     @BeforeTest
     public void setupUrl()
     {
         baseUrl=prop.getProperty("BaseURL");
         basePath=prop.getProperty("BasePath");
-        workflowid=prop.getProperty("workflowid");
+        filepath=prop.getProperty("pagefilepath_test");
+        workflowid=prop.getProperty("workflowid_test");
+        apikey=prop.getProperty("Q4web_apikey");
+        apisecret=prop.getProperty("Q4web_apisecret");
         url=baseUrl+basePath+"/"+workflowid;
 
         Newpage=new GetPages();
@@ -35,9 +43,8 @@ public class TestPutPage extends BaseClass {
     }
 
     @Test
-    public void TestChangePgTitle()
-    {
-        Response resp=pp.EditPage(url);
+    public void TestChangePgTitle() throws IOException, ParseException {
+        Response resp=pp.EditPage(url,apikey,apisecret,filepath);
         Assert.assertTrue(resp.body().jsonPath().get("success"));
 
     }

@@ -21,7 +21,7 @@ public class GetWorkflows extends BaseClass {
                             param("groupld",0).
                        when().
                             get(url);
-        //resp.prettyPrint();
+        resp.prettyPrint();
         return resp;
 
 
